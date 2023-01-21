@@ -16,44 +16,27 @@ let datosUsuario = {
   ingreso: ""
 };
 
-input.addEventListener("change", e => {
-  e.preventDefault();
+input.addEventListener("change", () => {
   datosUsuario[ingreso.name] = ingreso.value;
-  console.log(datosUsuario);
 });
-const frase = () => {
+
+const frase = datoUsuario => {
   let random =
     pro[Math.floor(Math.random() * pro.length)] +
     adj[Math.floor(Math.random() * adj.length)] +
-    datosUsuario +
+    datoUsuario +
     dominios[Math.floor(Math.random() * dominios.length)];
-
   return random;
 };
-console.log(frase());
 
 let p = document.createElement("p");
-
 let parrafo = texto => {
   p.classList.add("fw-bolder");
   p.classList.add("my-4");
   p.textContent = texto;
-  p.textContent = texto;
-  p.textContent = texto;
   return div.appendChild(p);
 };
-boton.addEventListener("click", e => {
-  e.preventDefault();
-  return parrafo(frase());
+
+boton.addEventListener("click", () => {
+  return parrafo(frase(datosUsuario.ingreso));
 });
-//console.log(pronombre(), adjetivos(), dominio(), datosUsuario);
-/*
-const generarParrafo = ( (escusa) =>  {
-  let div = document.querySelector('.escusa-generada');
-  div.classList.add('container');
-  div.classList.add('my-4');
-  p.classList.add('fw-bolder')
-  p.classList.add('parrafo')
-  p.textContent = escusa;
-  return div.appendChild(p);
-});*/
